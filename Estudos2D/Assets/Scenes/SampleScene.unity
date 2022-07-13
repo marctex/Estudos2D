@@ -540,3 +540,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidadePlayer: 10
   oRigidbody2D: {fileID: 1006243200}
+  oSpriteRenderer: {fileID: 1006243202}

@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public float velocidadePlayer;
     public Rigidbody2D oRigidbody2D;
+    public SpriteRenderer oSpriteRenderer;
     void Start()
     {
         
@@ -19,12 +20,21 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        MovePlayer();
+       MovePlayer();
     }
 
     public void MovePlayer()
     {
         float inputMovement = Input.GetAxisRaw("Horizontal");
         oRigidbody2D.velocity = new Vector2(inputMovement * velocidadePlayer, oRigidbody2D.velocity.y);
+        if (inputMovement > 0)
+        {
+            oSpriteRenderer.flipX = false;
+        }
+
+        if (inputMovement < 0)
+        {
+            oSpriteRenderer.flipX = true;
+        }
     }
 }
