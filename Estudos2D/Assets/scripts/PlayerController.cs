@@ -7,6 +7,11 @@ public class PlayerController : MonoBehaviour
     public float velocidadePlayer;
     public Rigidbody2D oRigidbody2D;
     public SpriteRenderer oSpriteRenderer;
+
+    public bool estaNoPiso;
+    public Transform verificaPiso;
+    public float raioDeVerificacao;
+    public LayerMask layerPiso;
     void Start()
     {
         
@@ -20,7 +25,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-       MovePlayer();
+        MovePlayer();
+        Pular();
     }
 
     public void MovePlayer()
@@ -36,5 +42,10 @@ public class PlayerController : MonoBehaviour
         {
             oSpriteRenderer.flipX = true;
         }
+    }
+
+    public void Pular()
+    {
+        estaNoPiso = Physics2D.OverlapCircle(verificaPiso.position, raioDeVerificacao, layerPiso);
     }
 }
