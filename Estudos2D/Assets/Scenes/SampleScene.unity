@@ -575,7 +575,8 @@ MonoBehaviour:
   oSpriteRenderer: {fileID: 1006243202}
   estaNoPiso: 0
   verificaPiso: {fileID: 622614195}
-  raioDeVerificacao: 0.2
+  raioDeVerificacao: 0.1
   layerPiso:
     serializedVersion: 2
     m_Bits: 64
+  alturaDoPulo: 8

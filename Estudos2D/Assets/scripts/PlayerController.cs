@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public Transform verificaPiso;
     public float raioDeVerificacao;
     public LayerMask layerPiso;
+
+    public float alturaDoPulo;
+    public AudioSource puloAudio;
     void Start()
     {
         
@@ -47,5 +50,11 @@ public class PlayerController : MonoBehaviour
     public void Pular()
     {
         estaNoPiso = Physics2D.OverlapCircle(verificaPiso.position, raioDeVerificacao, layerPiso);
+
+        if (Input.GetKey(KeyCode.Space) && estaNoPiso == true)
+        {
+            oRigidbody2D.velocity = Vector2.up * alturaDoPulo;
+            puloAudio.Play();
+        }
     }
 }
